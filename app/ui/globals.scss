@@ -1,0 +1,71 @@
+@import '_variables.scss'; 
+
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == tablet {
+        @media screen and (min-width: 768px) { 
+            @content; 
+        }
+    }
+    @if $breakpoint == desktop {
+        @media screen and (min-width: 1024px) {
+            @content;
+        }
+    }
+}
+
+:root {
+    --primary-color: #{$primary-color-light};
+    --background-color: #{$background-color-light};
+    --text-color: #{$text-color-light};
+    --border-color: #{$border-color-light};
+    --divider-color: #{$divider-color};
+    --accent-1: #{$accent-1-light};
+    --button-primary-bg: #{$button-primary-bg};
+    --button-text-color-light: #{$button-text-color-light};
+}
+
+.dark {
+    --primary-color: #{$primary-color-dark};
+    --background-color: #{$background-color-dark};
+    --text-color: #{$text-color-dark};
+    --border-color: #{$border-color-dark};
+    --divider-color: #{$border-color-dark};
+    --accent-1: #{$accent-1-dark};
+    --button-primary-bg: #{$primary-color-dark};
+    --button-text-color: #{$text-color-dark};
+    
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.light {
+    --primary-color: #{$primary-color-light};
+    --background-color: #{$background-color-light};
+    --text-color: #{$text-color-light};
+    --border-color: #{$border-color-light};
+    --divider-color: #{$divider-color};
+    --accent-1: #{$accent-1-light};
+    --button-primary-bg: #{$primary-color-light};
+    --button-text-color: #{$text-color-light};
+
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+// Global styles for main content area
+main {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    max-width: 1920px;
+
+    @include respond-to(tablet) {
+        padding: 0 3rem;
+    }
+    
+    @include respond-to(desktop) {
+        padding: 0 6rem;
+    }
+}
+

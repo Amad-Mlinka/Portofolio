@@ -1,0 +1,17 @@
+.sidenav{
+    top: 80px;
+    background-color:var(--background-color)
+}
+
+.link {
+    position: relative;
+    opacity: 0; 
+    transform: translateX(-20px);
+    background: var(--primary-color);
+    margin: 1rem 1rem 0 0;
+    padding: 1rem;
+    color: var(--text-color); 
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%); 
+    transition: all 0.3s ease; 
+  }
+  

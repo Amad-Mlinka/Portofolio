@@ -1,0 +1,47 @@
+// Variables.scss
+
+// Colors
+
+// Primary Colors
+$primary-color-dark: #E31B6D;
+$primary-color-light: #FF2D92;
+$secondary: #6c757d;
+
+// Accent Colors
+$accent-1-dark: #E31B6D;
+$accent-1-light: #FF2D92 ;
+
+// Neutral Colors
+$white: #ffffff;
+$black: #000000;
+
+// Background Colors
+$background-color-light: #F7F9FC; // Light background
+$background-color-dark: #111821; // Dark background
+
+// Text Colors
+$text-color-light: #2B2B2B;  // Dark text (for light backgrounds)
+$text-color-dark: #ffffff;  // Light text (for dark backgrounds)
+$text-primary: #212529;
+$text-secondary: #6c757d;
+
+// Border and Divider Colors
+$border-color-light: #f1f1f1;  // Light border color
+$border-color-dark: #2a2a2a;   // Dark border color
+$divider-color: #e9ecef;
+
+// State Colors
+$success: #28a745;
+$danger: #dc3545;
+$warning: #ffc107;
+$info: #17a2b8;
+
+// Shadows & Overlays
+$shadow-color: rgba(0, 0, 0, 0.15);
+$overlay-color: rgba(0, 0, 0, 0.5);
+
+// Button Colors
+$button-primary-bg: $primary-color-dark;
+$button-secondary-bg: $secondary;
+$button-text-color-light: $text-color-light;
+$button-text-color-dark: $text-color-dark;
