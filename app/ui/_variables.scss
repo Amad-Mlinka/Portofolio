@@ -9,9 +9,11 @@ $secondary: #6c757d;
 
 // Accent Colors
 $accent-1-dark: #E31B6D;
+$accent-1-dark-text: white;
 $accent-1-dark-gradient: linear-gradient(90deg, $accent-1-dark, #FF2D92, #E31B6D);
 
 $accent-1-light: #FF2D92 ;
+$accent-1-light-text: black ;
 $accent-1-light-gradient: linear-gradient(90deg, $accent-1-light, #E31B6D, #FF2D92);
 
 // Neutral Colors
@@ -23,7 +25,7 @@ $background-color-light: #F7F9FC; // Light background
 $background-color-dark: #111821; // Dark background
 
 // Text Colors
-$text-color-light: #2B2B2B;  // Dark text (for light backgrounds)
+$text-color-light: #000;  // Dark text (for light backgrounds)
 $text-color-dark: #ffffff;  // Light text (for dark backgrounds)
 $text-primary: #212529;
 $text-secondary: #6c757d;

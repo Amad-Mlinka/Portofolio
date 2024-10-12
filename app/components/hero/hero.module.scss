@@ -1,11 +1,15 @@
 .heroContainer{
-    background-color: var(--background-color);
+
     .hero{
         height: 85vh;
+        .heroName{
+            color: var(--text-color);
+        }
+        .flicker{
+            color: var(--accent-1-text);
+        }
     }
-    .heroName{
-        color: var(--text-color);
-    }
+    
 }
 .flicker {
     animation: flicker 7s infinite;

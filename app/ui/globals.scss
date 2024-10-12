@@ -20,9 +20,11 @@
     --border-color: #{$border-color-light};
     --divider-color: #{$divider-color};
     --accent-1: #{$accent-1-light};
+    --accent-1-text: #{$accent-1-light-text};
     --accent-1-gradient: #E31B6D;
     --button-primary-bg: #{$button-primary-bg};
     --button-text-color-light: #{$button-text-color-light};
+    transition: background-color 0.5s ease;
 }
 
 .dark {
@@ -32,12 +34,14 @@
     --border-color: #{$border-color-dark};
     --divider-color: #{$border-color-dark};
     --accent-1: #{$accent-1-dark};
+    --accent-1-text: #{$accent-1-dark-text};
     --accent-1-gradient: #E31B6D;
     --button-primary-bg: #{$primary-color-dark};
     --button-text-color: #{$text-color-dark};
     
     background-color: var(--background-color);
     color: var(--text-color);
+    transition: background-color 0.5s ease;
 }
 
 .light {
@@ -53,6 +57,7 @@
 
     background-color: var(--background-color);
     color: var(--text-color);
+    transition: background-color 0.5s ease;
 }
 
 // Global styles for main content area
