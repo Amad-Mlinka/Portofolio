@@ -67,6 +67,7 @@ main {
     margin: 0 auto;
     overflow: hidden;
     max-width: 1920px;
+    padding-top: 80px !important;
 
     @include respond-to(tablet) {
         padding: 0 3rem;
@@ -75,6 +76,28 @@ main {
     @include respond-to(desktop) {
         padding: 0 6rem;
     }
+}
+
+nav{
+    position: fixed;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    max-width: 1920px;
+    background-color: var(--background-color);
+    z-index: 2;
+
+    @include respond-to(tablet) {
+        padding: 0 3rem;
+    }
+    
+    @include respond-to(desktop) {
+        padding: 0 6rem;
+    }
+}
+
+section{
+    padding-top: 80px;
 }
 
 

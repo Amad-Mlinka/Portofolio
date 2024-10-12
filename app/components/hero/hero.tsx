@@ -24,13 +24,13 @@ const Hero = () => {
         <div className={`flex space-x-6 ${styles.fadeIn} ${styles.delay400} ${isLoaded ? styles.visible : ''}`}>
           <a
             href="#projects"
-            className="bg-[#E31B6D] text-white py-3 px-8 rounded-full text-lg font-medium transition-transform hover:scale-105"
+            className="bg-[#E31B6D] text-white py-3 px-8 rounded-full text-sm lg:text-lg font-medium transition-transform hover:scale-105"
           >
             View Projects
           </a>
           <a
             href="#contact"
-            className="border-2 border-[#FF2D92] text-[#FF2D92] py-3 px-8 rounded-full text-lg font-medium transition-transform hover:scale-105"
+            className="border-2 border-[#FF2D92] text-[#FF2D92] py-3 px-8 rounded-full text-sm lg:text-lg font-medium transition-transform hover:scale-105"
           >
             Get in Touch
           </a>

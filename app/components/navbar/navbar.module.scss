@@ -14,7 +14,7 @@
     .link{
         color: --text-color;
         font-size: 1rem;
-        &.acitve{
+        &.active{
             text-shadow: 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 .5vh var(--lights);
             animation: flicker 7s infinite;
             filter:brightness(1);
