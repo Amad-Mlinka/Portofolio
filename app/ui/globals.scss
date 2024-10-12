@@ -20,6 +20,7 @@
     --border-color: #{$border-color-light};
     --divider-color: #{$divider-color};
     --accent-1: #{$accent-1-light};
+    --accent-1-gradient: #E31B6D;
     --button-primary-bg: #{$button-primary-bg};
     --button-text-color-light: #{$button-text-color-light};
 }
@@ -31,6 +32,7 @@
     --border-color: #{$border-color-dark};
     --divider-color: #{$border-color-dark};
     --accent-1: #{$accent-1-dark};
+    --accent-1-gradient: #E31B6D;
     --button-primary-bg: #{$primary-color-dark};
     --button-text-color: #{$text-color-dark};
     
@@ -45,6 +47,7 @@
     --border-color: #{$border-color-light};
     --divider-color: #{$divider-color};
     --accent-1: #{$accent-1-light};
+    --accent-1-gradient: #E31B6D;
     --button-primary-bg: #{$primary-color-light};
     --button-text-color: #{$text-color-light};
 
@@ -68,4 +71,5 @@ main {
         padding: 0 6rem;
     }
 }
+
 

@@ -16,7 +16,7 @@ const Hamburger = ({ links, utils }: Props) => {
     return (
         <>
             <HamburgerIcon toggled={isOpen} toggle={setIsOpen} color={resolvedTheme === "light" ? '#FF2D92' : '#E31B6D'} />
-            <div className={`${styles.sidenav} fixed right-0 w-full h-full shadow-lg transition-transform transform ${isOpen ? 'translate-x-0' : 'translate-x-[201vw]'}`}>
+            <div className={`${styles.sidenav} fixed right-0 w-full h-full shadow-lg transition-transform transform ${isOpen ? 'translate-x-0' : 'translate-x-[201vw]'} z-50`}>
                 <div className="flex flex-col">
                     {/* Render links */}
                     {links.map((link, index) => (
