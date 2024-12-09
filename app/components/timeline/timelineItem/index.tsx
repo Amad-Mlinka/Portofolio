@@ -33,7 +33,7 @@ const TimelineItem: React.FC<TimelineInterface> = ({
   techStack,
   isActive = false
 }) => {
-  const { class: typeClass, icon: Icon } = typeStyles[type] || typeStyles['default'];
+  const { class: typeClass, icon: Icon } = typeStyles[type as TimelineItemType] || typeStyles['default'];
 
   return (
     <div

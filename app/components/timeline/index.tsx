@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import { TimelineItem as TimelineInterface } from '@/app/interfaces/timeline/TimelineItem';
 import TimelineItem from './timelineItem';
 import styles from './timeline.module.scss'
