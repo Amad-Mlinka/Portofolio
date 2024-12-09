@@ -12,11 +12,11 @@ const Hero = () => {
   }, [])
   
   return (
-    <div className={` ${styles.heroContainer} overflow-hidden p-4 md:p-0`}>
+    <div className={` ${styles.heroContainer} overflow-hidden p-4 md:p-0 `}>
       <div className={`flex flex-col items-center justify-center ${styles.hero}`}>
         <h1 className={`text-6xl md:text-8xl font-bold mb-6 text-center ${styles.fadeIn} ${isLoaded ? styles.visible : ''}`}>
           <span className={`block ${styles.heroName}`}>Amad Mlinaric</span>
-          <span className={`block ${styles.flicker}`}>Full Stack Developer</span>
+          <span className={`block ${styles.heroTitle} flicker`}>Full Stack Developer</span>
         </h1>
         <p className={`text-xl md:text-2xl text-center mb-12 max-w-2xl ${styles.fadeIn} ${styles.delay200} ${isLoaded ? styles.visible : ''}`}>
           Transforming ideas into captivating digital experiences through innovative design and cutting-edge development

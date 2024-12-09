@@ -4,7 +4,7 @@ import ThemeSwitch from '../themeSwitch';
 import styles from './navbar.module.scss';
 import Hamburger from './hamburger';
 
-const sections = ['about', 'skills', 'projects', 'contact', 'resume'];
+const sections = ['about', 'skills', 'projects', 'contact'];
 
 interface NavbarProps {
     activeSection: string;
@@ -40,24 +40,38 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, scrollToSection }) => {
                     {sections.map((section) => (
                         <span
                             key={section}
-                            className={`${styles.link} ${activeSection === section ? styles.active : ''}`}
+                            className={`${styles.link} ${activeSection === section ? styles.active : ''} cursor-pointer`}
                             onClick={() => scrollToSection(`#${section}`)} 
                         >
                             {section.charAt(0).toUpperCase() + section.slice(1)}
                         </span>
                     ))}
+                    <span
+                        className={`${styles.link} cursor-pointer`} // Added custom class for the resume link
+                    >
+                        Resume
+                    </span>
                 </div>
                 <div className={`${styles.hamburger} flex md:hidden justify-end`}>
                     <Hamburger
-                        links={sections.map((section) => (
+                        links={[
+                            ...sections.map((section) => (
+                                <span
+                                    key={section}
+                                    className={`${styles.link} ${activeSection === section ? styles.active : ''}`}
+                                    onClick={() => scrollToSection(`#${section}`)}
+                                >
+                                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                                </span>
+                            )),
                             <span
-                                key={section}
-                                className={`${styles.link} ${activeSection === section ? styles.active : ''}`}
-                                onClick={() => scrollToSection(`#${section}`)}
+                                key="resume"
+                                className={`${styles.link} cursor-pointer`}
+                                onClick={() => scrollToSection('#resume')} 
                             >
-                                {section.charAt(0).toUpperCase() + section.slice(1)}
+                                Resume
                             </span>
-                        ))}
+                        ]}
                         utils={[<ThemeSwitch key="theme-switch" />]}
                     />
                 </div>

@@ -1,0 +1,30 @@
+
+.line {
+    position: relative;
+  
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      margin-left: 2.25rem; 
+      transform: translateX(-1px);
+      height: 100%;
+      width: 0.125rem; 
+      background: linear-gradient(to bottom, transparent, var(--accent-1), transparent);
+      
+      @media (min-width: 768px) { 
+        margin: 0 auto;
+        transform: translateX(0);
+      }
+    }
+  }
+.tagList{
+    margin: 2rem 0;
+    display: flex;
+    direction: row;
+    flex-wrap: wrap;
+    gap: .5rem;
+    & > * {  
+        cursor: pointer;
+    }
+}

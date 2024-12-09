@@ -1,21 +1,22 @@
-import Hero from './components/hero/hero';
+import Hero from './components/hero';
+import Timeline from './components/timeline';
+import timelineData from '@/app/CV_DATA.json'
+
 
 export default function Home() {
   return (
     <div>
-      <div id="about">
+      <div id="about" className='min-h-screen'>
         <Hero />
+        <Timeline timelineItems={timelineData} />
       </div>
-      <section id="skills" style={{ height: '100vh'}}>
-        {/* Projects Section Content */}
+      <section id="skills" className='min-h-screen'>
         <h2>Skills Section</h2>
       </section>
-      <section id="projects" style={{ height: '100vh'}}>
-        {/* Projects Section Content */}
+      <section id="projects" className='min-h-screen'>
         <h2>Projects Section</h2>
       </section>
-      <section id="contact" style={{ height: '100vh' }}>
-        {/* Contact Section Content */}
+      <section id="contact" className='min-h-screen'>
         <h2>Contact Section</h2>
       </section>
     </div>
