@@ -11,7 +11,7 @@ interface TimelineProps {
 
 const Timeline: React.FC<TimelineProps> = ({ timelineItems }) => {
 
-  const [filteredTimelineItems, setTimelineItems] = useState([...timelineItems]);
+  //const [filteredTimelineItems, setTimelineItems] = useState([...timelineItems]);
   
   const tags = timelineItems
   .filter(exp => exp.techStack) 
