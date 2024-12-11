@@ -1,14 +1,17 @@
 import Hero from './components/hero';
 import Timeline from './components/timeline';
-import timelineData from '@/app/CV_DATA.json'
+import { fetchExperienceData } from './services/experienceService';
 
 
-export default function Home() {
+export default async function Home() {
+
+  const data = await fetchExperienceData();
+
   return (
     <div>
       <div id="about" className='min-h-screen'>
         <Hero />
-        <Timeline timelineItems={timelineData} />
+        <Timeline timelineItems={data} />
       </div>
       <section id="skills" className='min-h-screen'>
         <h2>Skills Section</h2>
@@ -22,3 +25,4 @@ export default function Home() {
     </div>
   );
 }
+

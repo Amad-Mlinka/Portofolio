@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './timelineItem.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBriefcase, faComputer, faGraduationCap, faCircle, IconDefinition } from '@fortawesome/free-solid-svg-icons';
-import { TimelineItem as TimelineInterface } from '@/app/interfaces/timeline/TimelineItem';
+import { ExperienceItem as TimelineInterface } from '@/app/interfaces/experience/ExperienceItem';
 
 type TimelineItemType = 'employment' | 'project' | 'education' | 'default';
 
@@ -29,11 +29,11 @@ const TimelineItem: React.FC<TimelineInterface> = ({
   title,
   duration,
   description,
-  type = 'default',
+  type,
   techStack,
   isActive = false
 }) => {
-  const { class: typeClass, icon: Icon } = typeStyles[type as TimelineItemType] || typeStyles['default'];
+  const { class: typeClass, icon: Icon } = typeStyles[type.name as TimelineItemType] || typeStyles['default'];
 
   return (
     <div
@@ -55,7 +55,7 @@ const TimelineItem: React.FC<TimelineInterface> = ({
         <div className={`${styles.tags}`}>
 
           {techStack?.map((tech, index) => (
-            <div className={`badge-outline ${type == "education" ? "badge-outline--accent3" : type == "projects" ? "badge-outline--accent2" : "badge-outline--accent1"}`} key={index}>{tech}</div>
+            <div className={`badge-outline ${type.name == "education" ? "badge-outline--accent3" : type.name == "projects" ? "badge-outline--accent2" : "badge-outline--accent1"}`} key={index}>{tech}</div>
           ))}
         </div>
       </div>

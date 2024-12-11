@@ -1,9 +1,8 @@
 'use client';
 import React from 'react';
-import { TimelineItem as TimelineInterface } from '@/app/interfaces/timeline/TimelineItem';
+import { ExperienceItem as TimelineInterface } from '@/app/interfaces/experience/ExperienceItem';
 import TimelineItem from './timelineItem';
 import styles from './timeline.module.scss'
-
 
 interface TimelineProps {
   timelineItems: TimelineInterface[];
@@ -19,7 +18,7 @@ const Timeline: React.FC<TimelineProps> = ({ timelineItems }) => {
 
 const uniqueTags = Array.from(new Set(tags));
   return (
-    <>
+    <div className={styles.timelineContainer}>
      <div className={styles.tagList}>
       {uniqueTags.map((tag,index)=>(
         <div className={`badge-outline badge-outline--accent1`} key={index}>{tag}</div>
@@ -37,7 +36,7 @@ const uniqueTags = Array.from(new Set(tags));
      </div>
      
    </div>
-    </>
+    </div>
    
   );
 };
