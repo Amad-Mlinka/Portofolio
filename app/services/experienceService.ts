@@ -4,7 +4,7 @@ import { ExperienceItemPostRequest } from "../interfaces/api/requests/experience
 import { ExperienceItemEditRequest } from "../interfaces/api/requests/experience/edit";
 import { ExperienceItem } from "../interfaces/experience/ExperienceItem";
 
-const baseUrl=process.env.NEXT_PUBLIC_BASE_URL;
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 export async function fetchExperienceData() : Promise<ExperienceItem[]> {
     try {
         const res = await fetch(`${baseUrl}/api/experience`,
