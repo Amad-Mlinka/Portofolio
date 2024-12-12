@@ -4,7 +4,8 @@ import Providers from "./providers"
 import { Quicksand } from 'next/font/google'
 import { Metadata } from 'next'
 import ActiveSectionWrapper from "./components/ActiveSectionObserver"
-
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 const quicksand = Quicksand({ subsets: ['latin'], display: 'swap' })
 
 export const metadata: Metadata = {
@@ -25,6 +26,8 @@ export default function RootLayout({
             {children}
           </ActiveSectionWrapper>
         </Providers>
+        <Analytics/>
+        <SpeedInsights/>
       </body>
     </html>
   )
