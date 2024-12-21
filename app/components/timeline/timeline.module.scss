@@ -27,5 +27,12 @@
     gap: .5rem;
     & > * {  
         cursor: pointer;
+        
+    }
+    .activeTag {
+      background-color: var(--accent-color);
+      color: white;
+      border-color: var(--accent-color);
     }
 }
+

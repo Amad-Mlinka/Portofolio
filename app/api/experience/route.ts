@@ -68,10 +68,18 @@ export async function GET(req: Request) {
                 };
             }
 
-            if (filters.duration) {
+            if (filters.startDate) {
                 searchFilter.hasFilter = true;
                 searchFilter.duration = {
-                    contains: filters.duration,
+                    contains: filters.startDate,
+                    mode: 'insensitive',
+                };
+            }
+
+            if (filters.endDate) {
+                searchFilter.hasFilter = true;
+                searchFilter.duration = {
+                    contains: filters.endDate,
                     mode: 'insensitive',
                 };
             }
@@ -95,12 +103,14 @@ export async function GET(req: Request) {
             if (searchFilter.hasFilter) {
                 data = await prisma.experience.findMany({
                     where: searchFilter,
+                    orderBy: {startDate: 'desc'},
                     include: {
                         type: true,
                     },
                 });
             } else {
                 data = await prisma.experience.findMany({
+                    orderBy: {startDate: 'desc'},
                     include: {
                         type: true,
                     },
@@ -159,10 +169,11 @@ export async function POST(req: Request) {
                 title: data.title,
                 company: data.company,
                 location: data.location,
-                duration: data.duration,
                 description: data.description,
                 techStack: data.techStack,
                 isActive: data.isActive ?? true,
+                startDate: data.startDate,
+                endDate: data.endDate,
                 type: {
                     connect: {
                         id: experienceType.id,
@@ -212,10 +223,11 @@ export async function PUT(req: Request) {
                 title: data.title,
                 company: data.company,
                 location: data.location,
-                duration: data.duration,
                 description: data.description,
                 techStack: data.techStack,
                 isActive: data.isActive ?? true,
+                startDate: data.startDate,
+                endDate: data.endDate,
                 type: {
                     connect: {
                         id: data.typeId,

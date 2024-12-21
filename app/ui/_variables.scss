@@ -18,24 +18,6 @@ $accent-1-light: #FF2D92 ;
 $accent-1-light-text: white ;
 $accent-1-light-gradient: linear-gradient(90deg, $accent-1-light, #E31B6D, #FF2D92);
 
-// Accent 2 (Sky Blue)
-$accent-2-dark: #1B98E3;
-$accent-2-dark-text: white;
-$accent-2-dark-gradient: linear-gradient(90deg, $accent-2-dark, #2DBBFF, $accent-2-dark);
-
-$accent-2-light: #2DBBFF;
-$accent-2-light-text: black;
-$accent-2-light-gradient: linear-gradient(90deg, $accent-2-light, $accent-2-dark, $accent-2-light);
-
-// Accent 3 (Vibrant Gold)
-$accent-3-dark: #E3A51B;
-$accent-3-dark-text: black;
-$accent-3-dark-gradient: linear-gradient(90deg, $accent-3-dark, #FFBD2D, $accent-3-dark);
-
-$accent-3-light: #FFBD2D;
-$accent-3-light-text: white;
-$accent-3-light-gradient: linear-gradient(90deg, $accent-3-light, $accent-3-dark, $accent-3-light);
-
 // Neutral Colors
 $white: #ffffff;
 $black: #000000;

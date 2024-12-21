@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from 'react'
 
 import styles from './hero.module.scss'
+import NeonButton from '../ui/buttons/neonButton';
+import Button from '../ui/buttons/button';
 
   
 const Hero = () => {
@@ -22,18 +24,16 @@ const Hero = () => {
           Transforming ideas into captivating digital experiences through innovative design and cutting-edge development
         </p>
         <div className={`flex space-x-6 ${styles.fadeIn} ${styles.delay400} ${isLoaded ? styles.visible : ''}`}>
-          <a
+          <NeonButton
             href="#projects"
-            className="bg-[#E31B6D] text-white py-3 px-8 rounded-full text-sm lg:text-lg font-medium transition-transform hover:scale-105"
           >
             View Projects
-          </a>
-          <a
+          </NeonButton>
+          <Button
             href="#contact"
-            className="border-2 border-[#FF2D92] text-[#FF2D92] py-3 px-8 rounded-full text-sm lg:text-lg font-medium transition-transform hover:scale-105"
           >
             Get in Touch
-          </a>
+          </Button>
         </div>
       </div>     
     </div>

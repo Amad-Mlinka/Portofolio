@@ -1,6 +1,7 @@
 'use client';
 import { ChevronDown } from 'lucide-react';
 import React from 'react';
+import styles from './scrollNext.module.scss';
 
 interface ScrollNextProps {
   activeSection: string;
@@ -21,12 +22,12 @@ const ScrollNext: React.FC<ScrollNextProps> = ({ activeSection, scrollToSection 
   return (
     <div className="w-100 flex justify-center">
       <div
-        className={`fixed bottom-16 w-100 transform -translate-x-1/2 animate-bounce transition-transform duration-300 cursor-pointer`}
+        className={`${styles.scrollNext} fixed bottom-16 w-100 transform -translate-x-1/2 animate-bounce transition-transform duration-300 cursor-pointer`}
         onClick={scrollToNextSection}
       >
         <ChevronDown
           size={32}
-          className={`text-[#E31B6D] ${isLastSection ? 'rotate-180' : ''} transition-transform duration-300`}
+          className={`${isLastSection ? 'rotate-180' : ''} transition-transform duration-300`}
         />
       </div>
     </div>

@@ -53,31 +53,31 @@
 
     &.project {
         .icon {
-            background-color: var(--accent-2);
+            background-color: var(--accent-1);
         }
 
         .content {
-            border: 3px solid var(--accent-2);
+            border: 3px dotted var(--accent-1);
         }
 
         .title,
         .duration {
-            color: var(--accent-2);
+            color: var(--accent-1);
         }
     }
 
     &.education {
         .icon {
-            background-color: var(--accent-3);
+            background-color: var(--accent-1);
         }
 
         .content {
-            border: 3px solid var(--accent-3);
+            border: 3px double var(--accent-1);
         }
 
         .title,
         .duration {
-            color: var(--accent-3);
+            color: var(--accent-1);
         }
     }
 
@@ -114,11 +114,11 @@
     }
 
     &.project {
-        background: var(--accent-2);
+        background: var(--accent-1);
     }
 
     &.education {
-        background: var(--accent-3);
+        background: var(--accent-1);
     }
 
     &.default {

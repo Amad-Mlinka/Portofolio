@@ -1,102 +1,73 @@
-// services/experienceService.ts
+import { ExperienceItemPostRequest } from '@/app/interfaces/api/requests/experience/create';
+import { ExperienceItemEditRequest } from '@/app/interfaces/api/requests/experience/edit';
+import { ExperienceFilter } from '@/app/interfaces/experience/ExperienceFilter';
+import { ExperienceItem } from '@/app/interfaces/experience/ExperienceItem';
 
-import { ExperienceItemPostRequest } from "../interfaces/api/requests/experience/create";
-import { ExperienceItemEditRequest } from "../interfaces/api/requests/experience/edit";
-import { ExperienceItem } from "../interfaces/experience/ExperienceItem";
+const API_URL = 'http://localhost:3000/api/experience';
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-export async function fetchExperienceData() : Promise<ExperienceItem[]> {
-    try {
-        const res = await fetch(`${baseUrl}/api/experience`,
-            {cache:"no-cache"}
-        );
-        if (!res.ok) {
-            throw new Error('Failed to fetch experience data');
-        }
-        const data = await res.json();
-        return data.data;
-    } catch (error) {
-        console.error('Error fetching experience data:', error);
-        throw error;
-    }
-}
+export const ExperienceService = {
+  getAll: async (): Promise<ExperienceItem[]> => {
+    const response = await fetch(API_URL);
+    const data = await response.json();
+    return data.data;
+  },
 
-export async function fetchExperienceDataByID(id : number) : Promise<ExperienceItem> {
-    try {
-        const res = await fetch(`${baseUrl}/api/experience?id=${id}`);
-        if (!res.ok) {
-            throw new Error('Failed to fetch experience data');
-        }
-        const data = await res.json();
-        return data.data;
-    } catch (error) {
-        console.error('Error fetching experience data:', error);
-        throw error;
-    }
-}
+  getById: async (id: number): Promise<ExperienceItem> => {
+    const response = await fetch(`${API_URL}?id=${id}`);
+    const data = await response.json();
+    return data.data;
+  },
 
-export async function createExperience(experienceData: ExperienceItemPostRequest) : Promise<ExperienceItem> {
-    try {
-        const res = await fetch(`${baseUrl}/api/experience`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(experienceData),
-        });
+  getByFilter: async (filter: Partial<ExperienceFilter>): Promise<ExperienceItem[]> => {
+    const queryParams = new URLSearchParams();
+    Object.entries(filter).forEach(([key, value]) => {
+      if (Array.isArray(value)) {
+        value.forEach(item => queryParams.append(key, item));
+      } else if (value !== undefined) {
+        queryParams.append(key, value.toString());
+      }
+    });
+    const response = await fetch(`${API_URL}?${queryParams.toString()}`);
+    const data = await response.json();
+    return data.data;
+  },
 
-        if (!res.ok) {
-            throw new Error('Failed to create experience');
-        }
+  create: async (experience: ExperienceItemPostRequest): Promise<ExperienceItem> => {
+    const response = await fetch(API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(experience),
+    });
+    const data = await response.json();
+    return data.data;
+  },
 
-        const data = await res.json();
-        return data.data;
-    } catch (error) {
-        console.error('Error creating experience:', error);
-        throw error;
-    }
-}
+  update: async (experience: ExperienceItemEditRequest): Promise<ExperienceItem> => {
+    const response = await fetch(API_URL, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(experience),
+    });
+    const data = await response.json();
+    return data.data;
+  },
 
-export async function updateExperience(experienceData: ExperienceItemEditRequest): Promise<ExperienceItem> {
-    try {
-        const res = await fetch(`${baseUrl}/api/experience`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ ...experienceData }),
-        });
+  delete: async (id: number): Promise<void> => {
+    await fetch(API_URL, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id }),
+    });
+  },
 
-        if (!res.ok) {
-            throw new Error('Failed to update experience');
-        }
+  getByTag: async (tag: string): Promise<ExperienceItem[]> => {
+    return ExperienceService.getByFilter({ techStack: [tag] });
+  },
+};
 
-        const data = await res.json();
-        return data.data;
-    } catch (error) {
-        console.error('Error updating experience:', error);
-        throw error;
-    }
-}
-
-export async function deleteExperience(id: number) {
-    try {
-        const res = await fetch(`${baseUrl}/api/experience`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ id }),
-        });
-
-        if (!res.ok) {
-            throw new Error('Failed to delete experience');
-        }
-
-        const data = await res.json();
-        return data.data;
-    } catch (error) {
-        console.error('Error deleting experience:', error);
-        throw error;
-    }
-}

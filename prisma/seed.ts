@@ -2,6 +2,12 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
+// Utility function to convert "MM/YYYY" to a Date object
+const parseDate = (dateStr: string): Date => {
+  const [month, year] = dateStr.split('/').map(Number);
+  return new Date(year, month - 1, 1); // Month is zero-indexed in JS Date
+}
+
 async function main() {
   // Seed Experience Types
   const experienceTypes = ['Education', 'Project', 'Internship', 'Employment'];
@@ -27,7 +33,8 @@ async function main() {
       title: 'CRM Developer',
       company: 'Advista d.o.o',
       location: 'Sarajevo, Bosnia and Herzegovina',
-      duration: '02/2024 – 09/2024',
+      startDate: parseDate('02/2024'),
+      endDate: parseDate('09/2024'),
       description: `Spearheaded the development of Miniweb, a web application enabling users to create personalized mini websites, similar to Shopify's landing page builder.
       Engineered a comprehensive CRM solution for a digital marketing startup, enhancing customer interaction management and lead tracking.
       Developed custom e-commerce integrations to streamline marketing strategies and improve customer engagement.
@@ -36,49 +43,58 @@ async function main() {
       Communicated complex technical concepts clearly to non-technical stakeholders, ensuring alignment and understanding across teams.`,
       techStack: ['PHP', 'Vanilla JS', 'jQuery'],
       typeId: experienceTypeIds['Employment'],
+      isActive: true
     },
     {
       title: 'Full Stack Engineer',
       company: 'Zentury Media',
       location: 'Sarajevo, Bosnia and Herzegovina',
-      duration: '09/2023 – 02/2024',
+      startDate: parseDate('09/2023'),
+      endDate: parseDate('02/2024'),
       description: `Developed and integrated modules for wallet history, calendar management, and content ordering into Zentury's proprietary CRM, utilizing C#, Angular, and PostgreSQL.
       Collaborated with cross-functional teams to ensure seamless integration of new features, improving overall system performance.
       Maintained consistent coding standards and documentation, facilitating efficient knowledge transfer and team collaboration.
       Utilized agile methodologies to manage project timelines, consistently delivering modules on schedule and exceeding client expectations.`,
       techStack: ['C#', 'Angular', 'PostgreSQL'],
       typeId: experienceTypeIds['Employment'],
+      isActive: true
     },
     {
       title: 'Software Engineer',
       company: 'AgentLocator',
       location: 'Sarajevo, Bosnia and Herzegovina',
-      duration: '11/2021 – 08/2023',
+      startDate: parseDate('11/2021'),
+      endDate: parseDate('08/2023'),
       description: `Developed and maintained advanced real estate solutions, CRM, and CMS systems, extensively utilized in the USA and Canadian markets.
       Spearheaded the implementation of a 10-year archive feature, significantly improving data management capabilities and supporting long-term customer relationship strategies.
       Utilized C# .NET for robust backend development, ensuring high performance and reliability of systems.
       Collaborated closely with deployment teams, assisting with deployments on each successful iteration, ensuring smooth transitions and minimal downtime.`,
       techStack: ['C#', '.NET', 'SQLServer'],
       typeId: experienceTypeIds['Employment'],
+      isActive: true
     },
     {
       title: 'Software Engineer',
       company: 'Enigma Development',
       location: 'Sarajevo, Bosnia and Herzegovina',
-      duration: '12/2020 – 10/2021',
-      description: `Crafted responsive and user-friendly websites using HTML, CSS, and JS/jQuery, with PHP—CodeIgnitor) and Node.js(Express) backends.
+      startDate: parseDate('12/2020'),
+      endDate: parseDate('10/2021'),
+      description: `Crafted responsive and user-friendly websites using HTML, CSS, and JS/jQuery, with PHP—CodeIgniter and Node.js(Express) backends.
       Played a key role in developing a German real estate site, implementing e-commerce functionalities and property management features.`,
       techStack: ['PHP', 'CodeIgniter', 'Node.js', 'Express'],
       typeId: experienceTypeIds['Employment'],
+      isActive: true
     },
     {
       title: 'Software Engineer - Bachelor',
       company: 'University of Zenica',
       location: 'Zenica, Bosnia and Herzegovina',
-      duration: '10/2018 – 05/2021',
+      startDate: parseDate('10/2018'),
+      endDate: parseDate('05/2021'),
       description: 'Bachelor of Software Engineering',
       techStack: [],
       typeId: experienceTypeIds['Education'],
+      isActive: true
     },
   ];
 

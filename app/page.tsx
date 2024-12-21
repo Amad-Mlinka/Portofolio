@@ -1,11 +1,11 @@
 import Hero from './components/hero';
 import Timeline from './components/timeline';
-import { fetchExperienceData } from './services/experienceService';
+import { ExperienceService } from './services/experienceService';
 
-export const dynamic = 'force-dynamic'
+
 export default async function Home() {
 
-  const data = await fetchExperienceData();
+  const data = await ExperienceService.getAll();
 
   return (
     <div>

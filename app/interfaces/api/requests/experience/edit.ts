@@ -4,9 +4,11 @@ export interface ExperienceItemEditRequest {
   title?: string;
   company?: string;
   location?: string; 
-  duration?: string; 
   description?: string;
   techStack?: string[];
   isActive?: boolean;
-  typeId?: number; 
+  typeId?: number;
+  startDate?: Date;
+  endDate?: Date;
+ 
 }

@@ -2,7 +2,8 @@ export interface ExperienceFilter {
     title?: string;
     company?: string;
     location?: string;
-    duration?: string;
+    startDate?:Date;
+    endDate?:Date;
     techStack?: string[];
     typeId?: number;
     isActive?: boolean;

@@ -10,7 +10,7 @@ export default function ActiveSectionWrapper({ children }: { children: React.Rea
   const [activeSection, setActiveSection] = useState<string>(sectionIds[0])
 
   useEffect(() => {
-    const options = { root: null, rootMargin: '0px', threshold: 0.3 }
+    const options = { root: null, rootMargin: '0px', threshold: 0.1 }
 
     const handleScroll = (entries: IntersectionObserverEntry[]) => {
       let maxRatio = 0

@@ -1,29 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-generator client {
-  provider = "prisma-client-js"
-}
-
 model Experience {
-  id          Int             @id @default(autoincrement())
+  id          Int            @id @default(autoincrement())
   title       String
   company     String
   location    String
-  duration    String
   description String
   techStack   String[]
-  type        ExperienceType  @relation(fields: [typeId], references: [id])
   typeId      Int
-  isActive    Boolean         @default(true)
+  isActive    Boolean        @default(true)
+  startDate   DateTime         
+  endDate     DateTime?      
+  link        String?
+  companyLink String?
+  type        ExperienceType @relation(fields: [typeId], references: [id])
 }
 
 model ExperienceType {
-  id         Int         @id @default(autoincrement())
-  name       String      @unique
-  isActive    Boolean    @default(true)
+  id          Int          @id @default(autoincrement())
+  name        String       @unique
+  isActive    Boolean      @default(true)
   experiences Experience[]
 }
-
